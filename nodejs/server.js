@@ -1,10 +1,23 @@
 const express = require('express');
 
 const app = express();
+app.use(express.json());
+app.get('/users', (req, res) => {
+    const params = req.query;
+    console.log(params)
+    res.json(params)
+})
 
-app.get('/', (req, res) => {
+app.post('/users/:id', (req, res) => {
+    const params = req.params;
+    console.log(params)
+    res.json(params)
+})
 
-    res.send('Hello World!! ')
+app.post('/users', (req, res) => {
+    const params = req.body;
+    console.log(params)
+    res.json(params)
 })
 
 app.listen(3001);
